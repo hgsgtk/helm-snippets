@@ -1,0 +1,20 @@
+$ helm install full-coral ./gettingstarted
+NAME: full-coral
+LAST DEPLOYED: Sun Oct 29 12:59:56 2023
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+
+$ helm get manifest full-coral
+---
+# Source: gettingstarted/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gettingstarted-configmap
+data:
+  myvalue: "Hello World!"
+
+$ helm uninstall full-coral
+release "full-coral" uninstalled
