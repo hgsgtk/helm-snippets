@@ -356,3 +356,30 @@ To learn more about the release, try:
 
     $ helm status rude-cardinal
     $ helm get all rude-cardinal
+  
+╰─$ helm install --generate-name --dry-run --debug gettingstarted/charts/mysubchart
+install.go:214: [debug] Original chart version: ""
+install.go:231: [debug] CHART PATH: /Users/hgsgtk/go/src/github.com/hgsgtk/helm-snippets/gettingstarted/charts/mysubchart
+
+NAME: mysubchart-1698904911
+LAST DEPLOYED: Thu Nov  2 15:01:51 2023
+NAMESPACE: default
+STATUS: pending-install
+REVISION: 1
+TEST SUITE: None
+USER-SUPPLIED VALUES:
+{}
+
+COMPUTED VALUES:
+dessert: cake
+
+HOOKS:
+MANIFEST:
+---
+# Source: mysubchart/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysubchart-1698904911-cfgmap2
+data:
+  dessert: cake
