@@ -12,3 +12,7 @@ data:
   {{- end }}
   {{- end }}
   release: {{ .Release.Name }}
+  toppings: |-
+    {{- range .Values.pizzaToppings }}
+    - {{ . | title | quote }}
+    {{- end }}
