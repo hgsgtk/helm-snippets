@@ -3,4 +3,6 @@
   labels:
     generator: helm
     data: {{ now | htmlDate }}
+    chart: {{ .Chart.Name }}
+    version: {{ .Chart.Version }}
 {{- end }}
