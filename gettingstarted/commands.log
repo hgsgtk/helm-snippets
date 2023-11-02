@@ -103,3 +103,60 @@ metadata:
   name: clunky-serval-configmap
 data:
   myvalue: "Hello World!"
+
+╰─$ helm install geared-marsupi ./gettingstarted --dry-run
+ --debug
+install.go:214: [debug] Original chart version: ""
+install.go:231: [debug] CHART PATH: /...(omit).../github.com/hgsgtk/helm-snippets/gettingstarted
+
+NAME: geared-marsupi
+LAST DEPLOYED: Thu Nov  2 11:02:33 2023
+NAMESPACE: default
+STATUS: pending-install
+REVISION: 1
+TEST SUITE: None
+USER-SUPPLIED VALUES:
+{}
+
+COMPUTED VALUES:
+favoriteDrink: coffee
+
+HOOKS:
+MANIFEST:
+---
+# Source: gettingstarted/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: geared-marsupi-configmap
+data:
+  myvalue: "Hello World!"
+  drink: coffee
+
+╰─$ helm install geared-marsupi ./gettingstarted --dry-run --debug --set favoriteDrink=slurm
+install.go:214: [debug] Original chart version: ""
+install.go:231: [debug] CHART PATH: /Users/hgsgtk/go/src/github.com/hgsgtk/helm-snippets/gettingstarted
+
+NAME: geared-marsupi
+LAST DEPLOYED: Thu Nov  2 11:04:01 2023
+NAMESPACE: default
+STATUS: pending-install
+REVISION: 1
+TEST SUITE: None
+USER-SUPPLIED VALUES:
+favoriteDrink: slurm
+
+COMPUTED VALUES:
+favoriteDrink: slurm
+
+HOOKS:
+MANIFEST:
+---
+# Source: gettingstarted/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: geared-marsupi-configmap
+data:
+  myvalue: "Hello World!"
+  drink: slurm
