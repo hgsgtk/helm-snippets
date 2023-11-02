@@ -337,3 +337,22 @@ data:
   myvalue: "Hello World!"
   drink: "coffee"
   food: "pizza"
+
+╰─$ helm install rude-cardinal ./gettingstarted 
+W1102 14:50:43.690048    8406 warnings.go:70] unknown field "app_name"
+W1102 14:50:43.690061    8406 warnings.go:70] unknown field "app_version"
+NAME: rude-cardinal
+LAST DEPLOYED: Thu Nov  2 14:50:43 2023
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+Thank you for installing gettingstarted.
+
+Your release is named rude-cardinal.
+
+To learn more about the release, try:
+
+    $ helm status rude-cardinal
+    $ helm get all rude-cardinal
