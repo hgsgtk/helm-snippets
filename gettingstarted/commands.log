@@ -160,3 +160,65 @@ metadata:
 data:
   myvalue: "Hello World!"
   drink: slurm
+
+╰─$ helm install geared-marsupi ./gettingstarted --dry-run --debug
+install.go:214: [debug] Original chart version: ""
+install.go:231: [debug] CHART PATH: /Users/hgsgtk/go/src/github.com/hgsgtk/helm-snippets/gettingstarted
+
+NAME: geared-marsupi
+LAST DEPLOYED: Thu Nov  2 11:17:42 2023
+NAMESPACE: default
+STATUS: pending-install
+REVISION: 1
+TEST SUITE: None
+USER-SUPPLIED VALUES:
+{}
+
+COMPUTED VALUES:
+favorite:
+  drink: coffee
+  food: pizza
+
+HOOKS:
+MANIFEST:
+---
+# Source: gettingstarted/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: geared-marsupi-configmap
+data:
+  myvalue: "Hello World!"
+  drink: "coffee"
+  food: "PIZZA"
+
+╰─$ helm install geared-marsupi ./gettingstarted --dry-run --debug
+install.go:214: [debug] Original chart version: ""
+install.go:231: [debug] CHART PATH: /Users/hgsgtk/go/src/github.com/hgsgtk/helm-snippets/gettingstarted
+
+NAME: geared-marsupi
+LAST DEPLOYED: Thu Nov  2 11:18:38 2023
+NAMESPACE: default
+STATUS: pending-install
+REVISION: 1
+TEST SUITE: None
+USER-SUPPLIED VALUES:
+{}
+
+COMPUTED VALUES:
+favorite:
+  drink: coffee
+  food: pizza
+
+HOOKS:
+MANIFEST:
+---
+# Source: gettingstarted/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: geared-marsupi-configmap
+data:
+  myvalue: "Hello World!"
+  drink: "coffeecoffeecoffeecoffeecoffee"
+  food: "PIZZA"
