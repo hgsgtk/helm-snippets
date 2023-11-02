@@ -297,3 +297,43 @@ data:
     - "Cheese"
     - "Peppers"
     - "Onions"
+
+╰─$ helm install geared-marsupi ./gettingstarted --dry-run --debug --set favoriteDrink=slurm
+install.go:214: [debug] Original chart version: ""
+install.go:231: [debug] CHART PATH: /Users/hgsgtk/go/src/github.com/hgsgtk/helm-snippets/gettingstarted
+
+NAME: geared-marsupi
+LAST DEPLOYED: Thu Nov  2 13:41:22 2023
+NAMESPACE: default
+STATUS: pending-install
+REVISION: 1
+TEST SUITE: None
+USER-SUPPLIED VALUES:
+favoriteDrink: slurm
+
+COMPUTED VALUES:
+favorite:
+  drink: coffee
+  food: pizza
+favoriteDrink: slurm
+pizzaToppings:
+- mushrooms
+- cheese
+- peppers
+- onions
+
+HOOKS:
+MANIFEST:
+---
+# Source: gettingstarted/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: geared-marsupi-configmap
+  labels:
+    generator: helm
+    data: 2023-11-02
+data:
+  myvalue: "Hello World!"
+  drink: "coffee"
+  food: "pizza"
