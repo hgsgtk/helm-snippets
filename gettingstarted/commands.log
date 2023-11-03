@@ -456,3 +456,62 @@ To learn more about the release, try:
 
     $ helm status gettingstarted-1698971187
     $ helm get all gettingstarted-1698971187
+
+╰─$ helm install --generate-name --dry-run --debug gettingstarted
+install.go:214: [debug] Original chart version: ""
+install.go:231: [debug] CHART PATH: /Users/hgsgtk/go/src/github.com/hgsgtk/helm-snippets/gettingstarted
+
+NAME: gettingstarted-1698971385
+LAST DEPLOYED: Fri Nov  3 09:29:45 2023
+NAMESPACE: default
+STATUS: pending-install
+REVISION: 1
+TEST SUITE: None
+USER-SUPPLIED VALUES:
+{}
+
+COMPUTED VALUES:
+favorite:
+  drink: coffee
+  food: pizza
+global:
+  salad: caesar
+mysubchart:
+  dessert: ice cream
+  global:
+    salad: caesar
+pizzaToppings:
+- mushrooms
+- cheese
+- peppers
+- onions
+
+HOOKS:
+MANIFEST:
+---
+# Source: gettingstarted/charts/mysubchart/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gettingstarted-1698971385-cfgmap2
+data:
+  dessert: ice cream
+  salad: caesar
+---
+# Source: gettingstarted/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gettingstarted-1698971385-configmap
+data:
+  salad: caesar
+
+NOTES:
+Thank you for installing gettingstarted.
+
+Your release is named gettingstarted-1698971385.
+
+To learn more about the release, try:
+
+    $ helm status gettingstarted-1698971385
+    $ helm get all gettingstarted-1698971385
