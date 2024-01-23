@@ -34,6 +34,26 @@ $ kubectl apply -f dnsynthetic.yaml                                             
 cronjob.batch/dnsynthetic configured
 ```
 
+## CoreDNS
+
+```bash
+$ kubectl get --namespace=kube-system deployments
+NAME      READY   UP-TO-DATE   AVAILABLE   AGE
+coredns   0/1     0            0           3m21s
+```
+
+### If fail
+
+```bash
+$ kubectl logs dnsynthetic-28433155-2cqwk
+lookup golang.org on 10.96.0.10:53: read udp 10.244.0.240:36555->10.96.0.10:53: i/o timeout
+lookup golang.org on 10.96.0.10:53: read udp 10.244.0.240:42122->10.96.0.10:53: i/o timeout
+lookup golang.org on 10.96.0.10:53: read udp 10.244.0.240:35494->10.96.0.10:53: i/o timeout
+lookup golang.org on 10.96.0.10:53: read udp 10.244.0.240:49327->10.96.0.10:53: i/o timeout
+lookup golang.org on 10.96.0.10:53: read udp 10.244.0.240:60912->10.96.0.10:53: i/o timeout
+lookup golang.org on 10.96.0.10:53: read udp 10.244.0.240:54600->10.96.0.10:53: i/o timeout
+```
+
 ## References
 - Kubernetes image pull policy 
     - https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy
