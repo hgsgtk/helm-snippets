@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: dnsynthetic
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: dnsynthetic
+            image: hgsgtk/dnsynthetic
+            imagePullPolicy: IfNotPresent
+          restartPolicy: OnFailure
