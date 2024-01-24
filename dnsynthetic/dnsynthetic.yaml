@@ -15,6 +15,34 @@ spec:
           restartPolicy: OnFailure
 ---
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: monitoring
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dnsynthetic-agent
+  labels:
+    app: dnsynthetic-agent
+  namespace: monitoring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dnsynthetic-agent
+  template:
+    metadata:
+      labels:
+        app: dnsynthetic-agent
+    spec:
+      containers:
+      - name: dnsynthetic
+        image: hgsgtk/dnsynthetic
+        imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+---
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: coredns
